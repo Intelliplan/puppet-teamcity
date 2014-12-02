@@ -27,6 +27,6 @@ class teamcity::agent::install {
     group   => $teamcity::common::group,
     mode    => '0644',
     replace => false,
-    require => Exec['unzip'],
+    #  require => Exec['unzip'],
   }
 }
