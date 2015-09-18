@@ -1,6 +1,7 @@
 class teamcity::agent(
   $user            = 'teamcity-agent',
   $server_url      = 'http://tc-server-01:8111',
+  $public_server_url = 'https://tc.intelliplan.net',
   $agent_name      = $::hostname,
   $own_port        = 9090,
   $own_address     = '',         # default to empty string to let build agent detect it
