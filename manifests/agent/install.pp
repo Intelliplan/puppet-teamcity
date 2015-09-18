@@ -10,16 +10,16 @@ class teamcity::agent::install {
   #  verbose     => false,
   #}
 
-  #exec { 'unzip':
-  #  command => "/usr/bin/unzip buildAgent.zip -d ${teamcity::agent::home}",
-  #  cwd     => '/tmp',
-  #  creates => $teamcity::agent::home,
-  #  require => [
-  #    User[$teamcity::agent::user],
-  #    Wget::Fetch['download']
-  #  ],
-  #  user    => 'root',
-  #}
+  exec { 'unzip':
+    command => "/usr/bin/unzip buildAgent.zip -d ${teamcity::agent::home}",
+    cwd     => '/tmp',
+    creates => $teamcity::agent::home,
+    require => [
+      User[$teamcity::agent::user],
+      Wget::Fetch['download']
+    ],
+    user    => 'root',
+  }
 
   file { $teamcity::agent::home:
     ensure  => directory,
