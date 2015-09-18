@@ -3,12 +3,12 @@
 class teamcity::agent::install {
   include wget
 
-  #  wget::fetch { 'download':
-  #  source      => "${teamcity::agent::server_url}/update/buildAgent.zip",
-  #  destination => '/tmp/buildAgent.zip',
-  #  timeout     => 0,
-  #  verbose     => false,
-  #}
+  wget::fetch { 'download':
+    source      => "${teamcity::agent::server_url}/update/buildAgent.zip",
+    destination => '/tmp/buildAgent.zip',
+    timeout     => 0,
+    verbose     => false,
+  }
 
   exec { 'unzip':
     command => "/usr/bin/unzip buildAgent.zip -d ${teamcity::agent::home}",
