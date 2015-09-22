@@ -1,6 +1,6 @@
 class teamcity::agent(
   $user            = 'teamcity-agent',
-  $server_url      = 'http://tc-server-01:8111',
+  $server_url      = 'http://tc-server:80',
   $public_server_url = 'https://tc.intelliplan.net',
   $agent_name      = $::hostname,
   $own_port        = 9090,
