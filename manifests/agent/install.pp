@@ -4,10 +4,11 @@ class teamcity::agent::install {
   include wget
 
   wget::fetch { 'download':
-    source      => "${teamcity::agent::public_server_url}/update/buildAgent.zip",
-    destination => '/tmp/buildAgent.zip',
-    timeout     => 0,
-    verbose     => false,
+    source             => "${teamcity::agent::public_server_url}/update/buildAgent.zip",
+    destination        => '/tmp/buildAgent.zip',
+    timeout            => 0,
+    nocheckcertificate => true,
+    verbose            => false,
   }
 
   exec { 'unzip':
